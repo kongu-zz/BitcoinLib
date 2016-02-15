@@ -7,7 +7,6 @@ using BitcoinLib.RPC.Specifications;
 
 namespace BitcoinLib.ExceptionHandling.Rpc
 {
-    [Serializable]
     public class RpcInternalServerErrorException : Exception
     {
         public RpcInternalServerErrorException()
@@ -24,15 +23,15 @@ namespace BitcoinLib.ExceptionHandling.Rpc
 
         public RpcErrorCode? RpcErrorCode { get; set; }
 
-        public override void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            if (info == null)
-            {
-                throw new ArgumentNullException("info");
-            }
+        //public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        //{
+        //    if (info == null)
+        //    {
+        //        throw new ArgumentNullException("info");
+        //    }
 
-            info.AddValue("RpcErrorCode", RpcErrorCode, typeof(RpcErrorCode));
-            base.GetObjectData(info, context);
-        }
+        //    info.AddValue("RpcErrorCode", RpcErrorCode, typeof(RpcErrorCode));
+        //    base.GetObjectData(info, context);
+        //}
     }
 }

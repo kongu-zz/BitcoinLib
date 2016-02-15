@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using BitcoinLib.Auxiliary;
@@ -34,6 +35,7 @@ namespace BitcoinLib.RPC.Connector
         private T MakeRequest<T>(RpcMethods rpcMethod, Int16 timedOutRequestsCount, params object[] parameters)
         {
             JsonRpcRequest jsonRpcRequest = new JsonRpcRequest(1, rpcMethod.ToString(), parameters);
+
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(_coinService.Parameters.SelectedDaemonUrl);
             SetBasicAuthHeader(webRequest, _coinService.Parameters.RpcUsername, _coinService.Parameters.RpcPassword);
             webRequest.Credentials = new NetworkCredential(_coinService.Parameters.RpcUsername, _coinService.Parameters.RpcPassword);

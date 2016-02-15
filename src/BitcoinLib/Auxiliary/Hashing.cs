@@ -12,7 +12,11 @@ namespace BitcoinLib.Auxiliary
     {
         public static String GetSha256(String text)
         {
-            return new SHA256Managed().ComputeHash(Encoding.UTF8.GetBytes(text)).Aggregate(String.Empty, (current, x) => current + String.Format("{0:x2}", x));
+            using (var algorithm = SHA256.Create())
+            {
+                return algorithm.ComputeHash(Encoding.UTF8.GetBytes(text)).Aggregate(String.Empty, (current, x) => current + String.Format("{0:x2}", x));
+            }
+            //return new SHA256Managed().ComputeHash(Encoding.UTF8.GetBytes(text)).Aggregate(String.Empty, (current, x) => current + String.Format("{0:x2}", x));
         }
     }
 }
