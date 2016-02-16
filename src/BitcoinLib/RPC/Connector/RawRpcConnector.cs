@@ -52,7 +52,7 @@ namespace BitcoinLib.RPC.Connector
             handler.Credentials = new NetworkCredential(rpcUsername, rpcPassword);
             handler.CookieContainer = tempCookies;
 
-            using (HttpClient client = new HttpClient(handler))
+            using (var client = new HttpClient(handler))
             {              
                 HttpContent contentPost = new StringContent(jsonRequest, Encoding.ASCII,
                     "application/json");

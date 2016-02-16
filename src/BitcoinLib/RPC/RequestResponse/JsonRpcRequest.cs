@@ -32,5 +32,10 @@ namespace BitcoinLib.RPC.RequestResponse
             String json = JsonConvert.SerializeObject(this);
             return Encoding.UTF8.GetBytes(json);
         }
+
+        public string GetString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }

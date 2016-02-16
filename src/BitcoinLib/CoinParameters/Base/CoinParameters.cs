@@ -2,7 +2,6 @@
 // Distributed under the GPLv3 software license, see the accompanying file LICENSE or http://opensource.org/licenses/GPL-3.0
 
 using System;
-// using System.Configuration;
 using System.Diagnostics;
 using BitcoinLib.Auxiliary;
 using BitcoinLib.Services.Coins.Base;
